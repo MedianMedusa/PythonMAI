@@ -1,22 +1,22 @@
 import sys
 import csv
 
-def getDeps(file: str) -> list:
+
+def getDeps(file) -> list:
     """
     На входе получает путь до CSV-файла 
     Формирует список отделов из файла file 
     Возвращает лист со списком отделов
     """
-    op = open(file, 'r')
-    reader = csv.reader(op, delimiter=';')
+    reader = csv.reader(file, delimiter=';')
     departments = {}
     for line in reader:
         departments[line[2]] = ''
-    op.close()
 
     return list(departments.keys())
 
-def makeAReport(file: str) -> dict:
+
+def makeAReport(file) -> dict:
     """
     На входе получает путь до CSV-файла
     Формирует отчёт на основе списка отделов, полученных 
@@ -24,8 +24,9 @@ def makeAReport(file: str) -> dict:
     Возвращает словарь со сводным отчётом по отделам
     """
     deps = getDeps(file)
-    op = open(file, 'r')
-    reader = csv.reader(op, delimiter=';')
+    file.seek(0)
+    reader = csv.reader(file, delimiter=';')
+
     report = {}
     for keys in deps:
         report[keys] = dict([
@@ -44,19 +45,22 @@ def makeAReport(file: str) -> dict:
             ('max', l2['max'] if l2['max'] > zp else zp),
             ('avg', l2['avg'] + [zp]),
             ])
-    op.close()
+
     
     for keys in report.keys():
-        avg = report[keys]['avg']
-        report[keys]['avg'] = sum(avg) / len(avg)
+        salaries = report[keys]['avg']
+        report[keys]['avg'] = sum(salaries) / len(salaries)
     return report
 
-def saveAReport(file: str) -> str:
+
+def saveAReport(file) -> str:
     """
     На входе получает путь до CSV-файла
     Сохраняет сводный отчёт по отделам в файл с названием "result.csv"
     Возвращает "success", если всё удачно
     """
+
+    reader = csv.reader(file, delimiter=';')
     report = makeAReport(file)
     output = open('result.csv', 'w')
     writer = csv.writer(output, delimiter=';')
@@ -88,8 +92,7 @@ def process() -> None:
     except FileNotFoundError:
         print('Нет такого файла')
         exit(1)
-    kek = None
-    kek = open('1', 'w')
+
 
     print('Что делать?\n'
           '1 - вывести все отделы\n'
@@ -102,11 +105,13 @@ def process() -> None:
         }
     result = options[input()](file)
     print(result)
+    file.close()
 
-if len (sys.argv) == 1:
-    print('дайте файл')
-    print('Нажмите Enter для падения')
-    input()
-    sys.exit(1)
 
-process()
+if __name__ == '__main__':
+    if len (sys.argv) == 1:
+        print('дайте файл')
+        print('Нажмите Enter для падения')
+        input()
+    else:
+        process()

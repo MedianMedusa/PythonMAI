@@ -33,11 +33,47 @@
     <Compile Include="OMD\omd.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Testing\issue1\doctests.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Testing\issue1\result">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Testing\issue2\pytests.py" />
+    <Compile Include="Testing\issue4\pytests.py" />
+    <Compile Include="Testing\issue5\alltests.py" />
+    <Compile Include="Testing\source\morse.py" />
+    <Compile Include="Testing\source\one_hot_encoder.py" />
+    <Compile Include="Testing\source\what_is_year_now.py" />
+    <Compile Include="Testing\issue3\unittests.py" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="CSVParser\" />
     <Folder Include="Lection_tests\" />
+    <Folder Include="Testing\" />
     <Folder Include="OMD\" />
+    <Folder Include="Testing\issue1\" />
+    <Folder Include="Testing\issue3\" />
+    <Folder Include="Testing\issue2\" />
+    <Folder Include="Testing\issue4\" />
+    <Folder Include="Testing\issue5\" />
+    <Folder Include="Testing\source\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CSVParser\report.csv" />
+    <Content Include="CSVParser\result.csv" />
+    <Content Include="Testing\issue1\README.md">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="Testing\issue2\README.md" />
+    <Content Include="Testing\issue2\result" />
+    <Content Include="Testing\issue4\README.md" />
+    <Content Include="Testing\issue4\result" />
+    <Content Include="Testing\issue5\README.md" />
+    <Content Include="Testing\issue5\result" />
+    <Content Include="Testing\source\issues.md" />
+    <Content Include="Testing\issue3\README.md" />
+    <Content Include="Testing\issue3\result" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in
