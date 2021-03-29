@@ -1,9 +1,17 @@
-> python unittests.py
+> python -m pytest --cov . --cov-report html
 
 
-....
-----------------------------------------------------------------------
-Ran 4 tests in 0.001s
+================================================= test session starts =================================================
+platform win32 -- Python 3.7.4, pytest-6.2.2, py-1.10.0, pluggy-0.13.1
+rootdir: B:\Projects\python\PythonHWs\PythonHWs\Testing\issue5
+plugins: cov-2.11.1
+collected 3 items
 
-OK
+test_source.py ...                                                                                               [100%]
+
+----------- coverage: platform win32, python 3.7.4-final-0 -----------
+Coverage HTML written to dir htmlcov
+
+
+================================================== 3 passed in 0.25s ==================================================
 

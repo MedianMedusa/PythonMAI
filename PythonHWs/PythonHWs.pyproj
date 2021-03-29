@@ -41,7 +41,8 @@
     </Compile>
     <Compile Include="Testing\issue2\pytests.py" />
     <Compile Include="Testing\issue4\pytests.py" />
-    <Compile Include="Testing\issue5\alltests.py" />
+    <Compile Include="Testing\issue5\test_source.py" />
+    <Compile Include="Testing\issue5\source.py" />
     <Compile Include="Testing\source\morse.py" />
     <Compile Include="Testing\source\one_hot_encoder.py" />
     <Compile Include="Testing\source\what_is_year_now.py" />

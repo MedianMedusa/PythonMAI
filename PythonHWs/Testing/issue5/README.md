@@ -1,7 +1,8 @@
-# unittest
+# pytest with mock
  Чтобы запустить проверку, надо выполнить:
  ```
- python unittests.py
+ pip install pytest-cov
+ python -m pytest --cov . --cov-report html
  ```
 
- Вывод должен быть 4 точки т.к. там 4 теста, и OK, это будет значить, что всё ок
+ В директории htmlcov, открыв index.html, для всех файлов покрытие должно быть 100% и ОК

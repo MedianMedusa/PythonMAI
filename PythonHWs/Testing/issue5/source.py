@@ -13,7 +13,7 @@ DMY_SEP_INDEX = 5
 DMY_YEAR_SLICE = slice(DMY_SEP_INDEX + 1, DMY_SEP_INDEX + 5)
 
 
-def what_is_year_now() -> int:
+def what_year_is_it() -> int:
     """
     Получает текущее время из API-worldclock и извлекает из поля 'currentDateTime' год
 
@@ -33,11 +33,3 @@ def what_is_year_now() -> int:
         raise ValueError('Invalid format')
 
     return int(year_str)
-
-
-if __name__ == '__main__':
-    year = what_is_year_now()
-    exp_year = 2021
-
-    print(year)
-    assert year == exp_year
