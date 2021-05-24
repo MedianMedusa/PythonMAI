@@ -48,3 +48,9 @@ def test_last_ok():
     foo = (x for x in range(10))
     result = myHW.last(foo)
     assert result == 9
+
+
+def test_last_none():
+    foo = (x for x in range(0))
+    result = myHW.last(foo)
+    assert result is None
