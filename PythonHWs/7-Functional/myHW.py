@@ -40,6 +40,7 @@ def distinct(iterable: Iterable):
 
 def groupby(key, iterable: Iterable):
     """
+    Группировка по ключу
     >>> users = [{'gender': 'female', 'age': 23},{'gender': 'male', 'age': 20},{'gender': 'female', 'age': 21}] # noqa: E501
     >>> groupby('gender', users)
     {'female': [{'gender': 'female', 'age': 23}, {'gender': 'female', 'age': 21}], 'male': [{'gender': 'male', 'age': 20}]} # noqa: E501
@@ -55,6 +56,7 @@ def groupby(key, iterable: Iterable):
 
 def chunks(size: int, iterable: Iterable):
     """
+    Разделение по размеру
     >>> list(chunks(3, [0, 1, 2, 3, 4]))
     [(0, 1, 2), (3, 4, None)]
     """
@@ -72,6 +74,7 @@ def chunks(size: int, iterable: Iterable):
 
 def first(iterable: Iterable):
     """
+    Тупо первый элемент
     >>> foo = (x for x in range(10))
     >>> first(foo)
     0
@@ -83,6 +86,7 @@ def first(iterable: Iterable):
 
 def last(iterable: Iterable):
     """
+    Тупо последний элемент
     >>> foo = (x for x in range(10))
     >>> last(foo)
     9
@@ -97,3 +101,4 @@ def last(iterable: Iterable):
 
 if __name__ == '__main__':
     print(list(flatten([0, [1, [2, 3]]])))
+    print(last(list(flatten([0, [1, [2, 3]]]))))
