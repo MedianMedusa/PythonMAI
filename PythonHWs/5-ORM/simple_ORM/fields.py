@@ -15,6 +15,8 @@ class Field:
 
     def __set__(self, obj, value):
         obj._data[self._name]['_value'] = value
+        # не работает нахрен, всё равно значения шарятся между инстансами. ХЕЛП!!
+
 
     def to_sql(self) -> str:
         """
@@ -41,6 +43,7 @@ class CharField(Field):
         if len(value) > self.max_length or len(value) < self.min_length:
             raise ValueError('value must be between {min} and {max}'.
                              format(min=self.min_length, max=self.max_length))
+
         super().__set__(obj, value)
 
 

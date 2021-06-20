@@ -21,7 +21,7 @@ def flatten(iterable: Iterable):
     for i in iterable:
         if isinstance(i, (list, set, frozenset, tuple)):
             yield from flatten(i)
-        elif isinstance(i, (int, str, float, bool)):
+        else:
             yield i
 
 
@@ -48,9 +48,9 @@ def groupby(key, iterable: Iterable):
 
     result = {}
     for x in iterable:
-        if x[key] not in result:
-            result[x[key]] = []
-        result[x[key]].append(x)
+        # if x[key] not in result:
+        #     result[x[key]] = []
+        result[x[key]].append(x.get(key, []))
     return result
 
 

@@ -1,6 +1,6 @@
-from simple_ORM import SqliteDatabase, Model, fields
+from simple_ORM import SqliteDB, Model, fields
 
-db = SqliteDatabase('test.db')
+db = SqliteDB('test.db')
 
 
 class BaseModel(Model):
@@ -22,6 +22,6 @@ if __name__ == '__main__':
 
     Advert.create(title='iPhone X', price=100)
     adverts = Advert.select()
-    print(adverts[0])
-    assert str(adverts[0]) == 'iPhone X | 100 ₽'
-    db.close()
+    print(adverts)
+    assert 'iPhone X | 100 ₽' in str(adverts)
+    db.disconnect()
